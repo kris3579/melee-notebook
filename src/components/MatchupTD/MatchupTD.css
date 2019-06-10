@@ -1,0 +1,10 @@
+td {
+  border: solid 1px black;
+  padding: 7.5px;
+}
+
+a {
+  color: rgb(0, 183, 255);
+  font-weight: bold;
+  text-decoration: none;
+}

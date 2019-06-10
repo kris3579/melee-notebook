@@ -1,0 +1,12 @@
+span {
+  color: rgb(255, 30, 0);
+}
+
+.mentalityDiv {
+  border: solid rgb(0, 0, 0) 3px;
+  margin: 0 auto;
+  margin-top: 3vh;
+  padding: 35px;
+  text-align: center;
+  width: 35vw;
+}
