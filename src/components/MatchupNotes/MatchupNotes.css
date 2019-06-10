@@ -1,0 +1,13 @@
+h2 {
+  text-align: center;
+}
+
+h2, h3, h4 {
+  color: rgb(255, 30, 0);
+  margin-left: 5vw;
+}
+
+li {
+  color: white;
+  margin-left: 7.5vw;
+}

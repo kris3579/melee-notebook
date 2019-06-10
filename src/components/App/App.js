@@ -1,12 +1,21 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import Dashboard from '../Dashboard/Dashboard';
+import MatchupNotes from '../MatchupNotes/MatchupNotes';
+import MentalityNotes from '../MentalityNotes/MentalityNotes';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
-}
+export default class App extends React.Component {
+  render() {
 
-export default App;
+    return (
+      <BrowserRouter>
+        <Route exact path={'/'} component={Dashboard}/>
+        <Route exact path={'/matchupNotes'} component={MatchupNotes}/>
+        <Route exact path={'/mentalityNotes'} component={MentalityNotes}/>
+      </BrowserRouter>
+    );
+  };
+};
