@@ -8,3 +8,25 @@ a {
   font-weight: bold;
   text-decoration: none;
 }
+
+.matchupDiv {
+  margin: 0px;
+  width:70%;
+}
+
+.statusDiv {
+  float: right;
+}
+
+.inProgress {
+  color: yellow;
+  text-align: right;
+}
+
+.fleshedOut {
+  color: green;
+}
+
+.empty {
+  color: rgb(255, 30, 0);
+}

@@ -6,19 +6,26 @@ import './MatchupTD.css';
 
 export default class MatchupTD extends React.Component {
   render() {
+    const statusClass = this.props.matchup[2] === 'WIP' ? 'inProgress' : this.props.matchup[2] === 'Fleshed Out' ? 'fleshedOut' : 'empty';
+    
     return (
       <td>
-        <Link
-          to={{
-            pathname: '/matchupNotes',
-            matchup: {
-              matchup: this.props.matchup[0],
-              accessMatchup: this.props.matchup[1]
-            },
-          }}
-        >
-          {this.props.matchup[0]}
-        </Link>
+        <div className='matchupDiv'>
+          <Link
+            to={{
+              pathname: '/matchupNotes',
+              matchup: {
+                matchup: this.props.matchup[0],
+                accessMatchup: this.props.matchup[1]
+              },
+            }}
+            >
+            {this.props.matchup[0]}
+          </Link>
+        </div>
+        <div className='statusDiv'>
+          <span className={statusClass}>{this.props.matchup[2]}</span>
+        </div>
       </td>
     );
   };
