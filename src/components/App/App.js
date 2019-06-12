@@ -13,7 +13,7 @@ export default class App extends React.Component {
     return (
       <BrowserRouter>
         <Route exact path={'/'} component={Dashboard}/>
-        <Route exact path={'/matchupNotes'} component={MatchupNotes}/>
+        <Route exact path={'/matchupNotes/:matchupId'} component={MatchupNotes}/>
         <Route exact path={'/mentalityNotes'} component={MentalityNotes}/>
       </BrowserRouter>
     );
