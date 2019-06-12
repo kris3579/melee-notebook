@@ -82,7 +82,7 @@ const matchups = {
     characterIcon: peachIcon,
     iconAlt: 'Icon for the Super Smash Bros. Melee fighter Peach.',
     personalMatchups: [
-      ['Peach vs Fox', 41, 'Empty'],
+      ['Peach vs Fox', 41, 'WIP'],
       ['Peach vs Marth', 42, 'Empty'],
       ['Peach vs Jigglypuff', 43, 'Empty'],
       ['Peach vs Sheik', 44, 'Empty'],

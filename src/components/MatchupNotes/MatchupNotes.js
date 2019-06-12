@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './MatchupNotes.css';
 
@@ -7,97 +6,82 @@ import matchupData from '../../data/matchupNotesData';
 
 export default class MatchupNotes extends React.Component {
   render() {
-    const key = this.props.location.matchup.accessMatchup;
+    const key = this.props.match.params.matchupId;
     const data = matchupData[key];
 
-    const stagePick = data && data.stagePick ? data.stagePick : 'N/A';
-    const doWeDisplayStagePick = stagePick === 'N/A' ? <li>N/A</li> : <ul>{
-      stagePick.map((note, i) => {
-        return (
-          <li key={i}>{note}</li>
-          )
-        })
-      }</ul>;
+    const doWeDisplaySubject = ((subject) => {
+      if (data) {
+        if (data[subject]) {
+          return (
+          <ul>
+            {
+            data[subject].map((note, i) => {
+              return (    
+                <li key={i}>{note}</li>
+                )
+              })
+            };
+          </ul>
+          );
+        };
+      };
+      return (
+        <li>N/A</li>
+      );
+    });
 
-    const neutralPositioning = data && data.neutral.positioning ? data.neutral.positioning : 'N/A';
-    const doWeDisplayNeutralPositioning = neutralPositioning === 'N/A' ? <li>N/A</li> : <ul>{
-      neutralPositioning.map((note, i) => {
-        return (
-          <li key={i}>{note}</li>
-          )
-        })
-      }</ul>;
+    const doWedisplayNeutralSubject = ((subject) => {
+      if(data) {
+        if(data.neutral) {
+          if(data.neutral[subject]) {
+            return (
+              <ul>
+                {
+                data.neutral[subject].map((note, i) => {
+                  return (    
+                    <li key={i}>{note}</li>
+                    )
+                  })
+                };
+              </ul>
+            );
+          };
+        };
+      };
+      return (
+        <li>N/A</li>
+      );
+    });
 
-    const neutralOffense = data && data.neutral.offense ? data.neutral.offense : 'N/A';
-    const doWeDisplayNeutralOffense = neutralOffense === 'N/A' ? <li>N/A</li> : <ul>{
-      neutralOffense.map((note, i) => {
-        return (
-          <li key={i}>{note}</li>
-          )
-        })
-      }</ul>;
-
-    const neutralDefense = data && data.neutral.defense ? data.neutral.defense : 'N/A';
-    const doWeDisplayNeutralDefense = neutralDefense === 'N/A' ? <li>N/A</li> : <ul>{
-      neutralDefense.map((note, i) => {
-        return (
-          <li key={i}>{note}</li>
-          )
-        })
-      }</ul>;
-
-    const punish = data && data.punish ? data.punish : 'N/A';
-    const doWeDisplayPunish = punish === 'N/A' ? <li>N/A</li> : <ul>{
-      punish.map((note, i) => {
-        return (
-          <li key={i}>{note}</li>
-          )
-        })
-      }</ul>;
-
-    const edgeGaurd = data && data.edgeGaurd ? data.edgeGaurd : 'N/A';
-    const doWeDisplayEdgeGaurd = edgeGaurd === 'N/A' ? <li>N/A</li> : <ul>{
-      edgeGaurd.map((note, i) => {
-        return (
-          <li key={i}>{note}</li>
-          )
-        })
-      }</ul>;
-
-    const recovery = data && data.recovery ? data.recovery : 'N/A';
-    const doWeDisplayRecovery = recovery === 'N/A' ? <li>N/A</li> : <ul>{
-      recovery.map((note, i) => {
-        return (
-          <li key={i}>{note}</li>
-          )
-        })
-      }</ul>;
+    const stagePick = doWeDisplaySubject('stagePick');
+    const neutralPositioning = doWedisplayNeutralSubject('positioning');
+    const neutralOffense = doWedisplayNeutralSubject('offense');
+    const neutralDefense = doWedisplayNeutralSubject('defense');
+    const punish = doWeDisplaySubject('punish');
+    const edgeGaurd = doWeDisplaySubject('edgeGaurd');
+    const recovery = doWeDisplaySubject('recovery');
 
     return (
       <div>
-        <h2>{this.props.location.matchup.matchup}</h2>
+        <h2>{data.matchup}</h2>
         <h3>Stage Pick</h3>
-        {doWeDisplayStagePick}
+        {stagePick}
         <h3>Neutral</h3>
         <ul>
           <h4>Positioning</h4>
-          {doWeDisplayNeutralPositioning}
+          {neutralPositioning}
           <h4>Offense</h4>
-          {doWeDisplayNeutralOffense}
+          {neutralOffense}
           <h4>Defense</h4>
-          {doWeDisplayNeutralDefense}
+          {neutralDefense}
         </ul>
         <h3>Punish</h3>
-        {doWeDisplayPunish}
+        {punish}
         <h3>Edge Gaurd</h3>
-        {doWeDisplayEdgeGaurd}
+        {edgeGaurd}
         <h3>Recovery</h3>
-        {doWeDisplayRecovery}
+        {recovery}
       </div>
     );
   };
-};
-
-MatchupNotes.propTypes = {
-  matchup: PropTypes.object,
 };

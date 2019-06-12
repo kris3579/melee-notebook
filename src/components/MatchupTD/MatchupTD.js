@@ -13,11 +13,7 @@ export default class MatchupTD extends React.Component {
         <div className='matchupDiv'>
           <Link
             to={{
-              pathname: '/matchupNotes',
-              matchup: {
-                matchup: this.props.matchup[0],
-                accessMatchup: this.props.matchup[1]
-              },
+              pathname: `/matchupNotes/${this.props.matchup[1]}`,
             }}
             >
             {this.props.matchup[0]}

@@ -13,7 +13,7 @@ export default class App extends React.Component {
       <div>
         <Header/>
         <MatchupTable/>
-        <div class='mentalityDiv'>
+        <div className='mentalityDiv'>
           <Link
             to={{
               pathname: '/mentalityNotes',
